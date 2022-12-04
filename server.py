@@ -32,7 +32,7 @@ if HOSTNAME == "instance-from-template-a":
 def index():
     return render_template(
         'index.html', 
-        check_token_url= url_for('check_token')
+        check_token_url= url_for('check_token'),
         send_token_url=url_for('send_token'),
         hostname=HOSTNAME,
         button_string=f"Send token to {next[HOSTNAME]}"
