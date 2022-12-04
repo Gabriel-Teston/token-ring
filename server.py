@@ -32,10 +32,10 @@ if HOSTNAME == "instance-from-template-a":
 def index():
     return render_template(
         'index.html', 
-        check_token_url= url_for('check_token'),
-        send_token_url=url_for('send_token'),
-        hostname=HOSTNAME,
-        button_string=f"Send token to {next[HOSTNAME]}"
+        check_token_url=f"\'{url_for('check_token')}\'",
+        send_token_url=f"\'{url_for('send_token')}\'",
+        hostname=f"\'HOSTNAME\'",
+        button_string=f"\'Send token to {next[HOSTNAME]}\'"
         )
 
 @app.route("/check_token")
