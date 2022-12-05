@@ -13,7 +13,7 @@
         }
 
         async function add(){
-            let url = {{ check_token_url }};
+            let url = {{ check_token_url|tojson }};
             httpGet(url, (r) => {
                     if (r.status == 200){
                         counter ++;
@@ -24,13 +24,13 @@
         }
 
         function sendToken(){
-            let url = {{ send_token_url }};
+            let url = {{ send_token_url|tojson }};
             httpGet(url, () => {}
             );
         }
     </script>
     <body>
-        <h1>Hello if you see this than you have apache running on {{ hostname }}!</h1>
+        <h1>Hello if you see this than you have apache running on {{ hostname|tojson }}!</h1>
 
         <input type='button' value='Add 1' onclick='add();' />
         {% set button_string = 'Send token to' ~ ' ' ~ next_instace%}
