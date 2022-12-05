@@ -13,7 +13,8 @@
         }
 
         async function add(){
-            httpGet({{ check_token_url }}, (r) => {
+            let url = {{ check_token_url|tojson }};
+            httpGet(url, (r) => {
                     if (r.status == 200){
                         counter ++;
                         console.log(counter);
@@ -23,7 +24,8 @@
         }
 
         function sendToken(){
-            httpGet({{ send_token_url }}, () => {}
+            let url = {{ send_token_url|tojson }};
+            httpGet(url, () => {}
             );
         }
     </script>
@@ -32,7 +34,7 @@
 
         <input type='button' value='Add 1' onclick='add();' />
         {% set button_string = 'Send token to' ~ ' ' ~ next_instace%}
-        <input type='button' value={{ button_string }} onclick='sendReset();' />
+        <input type='button' value="{{ button_string }}" onclick='sendReset();' />
 
     </body>
 </html>
