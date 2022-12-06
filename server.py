@@ -14,7 +14,7 @@ ips = {
     "instance-from-template-c": os.getenv('INSTANCE_C_ADRESS')
 }
 
-next = {
+next_instance = {
     "instance-from-template-a": "instance-from-template-b",
     "instance-from-template-b": "instance-from-template-c",
     "instance-from-template-c": "instance-from-template-a"
@@ -35,7 +35,7 @@ def index():
         check_token_url=url_for('check_token'),
         send_token_url=url_for('send_token'),
         hostname=HOSTNAME,
-        button_string=next[HOSTNAME]
+        button_string=next_instance[HOSTNAME]
         )
 
 @app.route("/check_token")
@@ -51,6 +51,6 @@ def receive_token():
 def send_token():
     if not app.token:
         return "", 401
-    url = f"http://{next[HOSTNAME]/receive_token}"
+    url = f"http://{next_instance[HOSTNAME]}/receive_token"
     requests.get(url)
     return "", 200
