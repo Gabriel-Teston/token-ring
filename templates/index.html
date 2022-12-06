@@ -33,8 +33,7 @@
         <h1>Hello if you see this than you have apache running on {{ hostname|tojson }}!</h1>
 
         <input type='button' value='Add 1' onclick='add();' />
-        {% set button_string = 'Send token to' ~ ' ' ~ next_instace%}
-        <input type='button' value="{{ next_instace }}" onclick='sendReset();' />
+        <input type='button' value='Send token to Next isntance' onclick='sendReset();' />
 
     </body>
 </html>
